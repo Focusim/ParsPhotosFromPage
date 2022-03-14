@@ -1,24 +1,8 @@
 <?php
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // URL с которого нужно скачать изображения.
 $url = $_POST['url'];
-$dirName = $_POST['dirname'];
+$dirName = trim($_POST['dirname']);
 
 // Директория куда будут сохранятся изображения.
 $path = dirname(__FILE__) . '/' . $dirName;
@@ -78,8 +62,6 @@ foreach ($images as $image) {
 
 
 /* СОЗДАНИЕ АРХИВА */
-
-// Получаем реальный путь к нашей папке
 
 //$dirName = '\' . $dirName;
 
