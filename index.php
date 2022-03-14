@@ -20,6 +20,8 @@
         <a class="input download" title="" id="download" href="" download>Скачать архив</a>
     </div>
 
+
+
 <script>
     const doc = document
     const btn = doc.querySelector('#btn')
@@ -34,8 +36,11 @@
         fetch('post.php', {
             method: 'POST',
             body: new FormData( document.getElementById('form')),
+        }).then(response => response.json())
+        .then(result => {
+            console.log(result.data)
         });
-        
+
         download.classList.remove('active')
         btn.classList.add('disable')
         loader.classList.add('active')
@@ -44,11 +49,21 @@
             loader.classList.remove('active')
             btn.classList.remove('disable')
         }, 2000);
-        
+
         let dirnameValue = dirname.value
 
-        btn.setAttribute('href', dirnameValue  + '.zip')
+        download.setAttribute('href', dirnameValue  + '.zip')
         download.setAttribute('title', dirnameValue  + '.zip')
+    })
+
+    download.addEventListener('click', () => {
+
+        setTimeout(() => {
+            fetch('remove.php', {
+                method: 'POST',
+            });
+            download.classList.remove('active')
+        }, 4000);
     })
 
 </script>

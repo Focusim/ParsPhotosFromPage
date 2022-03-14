@@ -20,7 +20,7 @@ $path = rtrim($path, '/');
 foreach ($images as $image) {
 
     $imgName = '/' . strrev(strstr(strrev($image[1]), '/', true));
-    echo $imgName;
+    //echo $imgName;
 
     if (strpos($image[1], 'data:image/') !== false) {
         continue;
@@ -47,6 +47,8 @@ foreach ($images as $image) {
 
             mkdir($path_img, 0777, true);
         }
+
+
 
         // откуда и куда
         if (empty($img['host']) && !empty($img['path'])) {
@@ -100,3 +102,4 @@ foreach ($files as $name => $file) {
 
 // Zip-архив будет создан только после закрытия объекта
 $zip->close();
+echo json_encode(['data' => '123']);
