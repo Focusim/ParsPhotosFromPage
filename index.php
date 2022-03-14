@@ -48,7 +48,7 @@
         let dirnameValue = dirname.value
 
         btn.setAttribute('href', dirnameValue  + '.zip')
-        btn.setAttribute('title', dirnameValue  + '.zip')
+        download.setAttribute('title', dirnameValue  + '.zip')
     })
 
 </script>
