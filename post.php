@@ -2,7 +2,9 @@
 
 // URL с которого нужно скачать изображения.
 $url = $_POST['url'];
-$dirName = trim($_POST['dirname']);
+$dirName = 'storage/' . trim($_POST['dirname']);
+
+echo $dirName;
 
 // Директория куда будут сохранятся изображения.
 $path = dirname(__FILE__) . '/' . $dirName;
@@ -65,8 +67,6 @@ foreach ($images as $image) {
 
 /* СОЗДАНИЕ АРХИВА */
 
-//$dirName = '\' . $dirName;
-
 $rootPath = realpath($path);
 
 // Инициализация объекта архива
@@ -102,4 +102,31 @@ foreach ($files as $name => $file) {
 
 // Zip-архив будет создан только после закрытия объекта
 $zip->close();
+
+
+// отправка json обратно
 echo json_encode(['data' => '123']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

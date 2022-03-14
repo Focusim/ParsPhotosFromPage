@@ -36,7 +36,8 @@
         fetch('post.php', {
             method: 'POST',
             body: new FormData( document.getElementById('form')),
-        }).then(response => response.json())
+        })
+        .then(response => response.json())
         .then(result => {
             console.log(result.data)
         });
@@ -52,7 +53,7 @@
 
         let dirnameValue = dirname.value
 
-        download.setAttribute('href', dirnameValue  + '.zip')
+        download.setAttribute('href', 'storage/' + dirnameValue  + '.zip')
         download.setAttribute('title', dirnameValue  + '.zip')
     })
 
